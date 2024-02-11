@@ -4,11 +4,10 @@ import App from './App.vue'
 const app = createApp(App);
 // createApp(App).mount('#app1')
 
-let containerSelector = "#app1";
+let containerSelector = "#east-doctors-list";
 
 // check if app has been mounted already
 const existingApp = document.querySelector(containerSelector);
-console.log(containerSelector)
 if (existingApp && existingApp.__vue_app__) {
     existingApp.__vue_app__.unmount(); // Unmount the existing app
 }

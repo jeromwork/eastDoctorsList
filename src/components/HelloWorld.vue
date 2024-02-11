@@ -1,18 +1,26 @@
 <script setup>
 import { ref } from 'vue'
+import { useStorage } from '@vueuse/core'
 
 defineProps({
   msg: String,
 })
 
 const count = ref(0)
+
+const state = useStorage('eastDoctorsList', { count: 0, msg: 'Hello' })
+if(!window.__eastDoctorsList){
+    window.__eastDoctorsList = state;
+}
+
+
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="state.count++">count is {{ state.count }}</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
